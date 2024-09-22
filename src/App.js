@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-
+import logo from './assets/Riyal-StaySpot.png';
 function App() {
   const [pgs] = useState([
     { id: 1, name: 'PG 1 Boys PG', location: 'Near OM collections, Triveni Circle, Mysuru', priceRange: '₹7500 - ₹9000', roomType: 'Single', mapsLink: 'https://maps.google.com', uberLink: 'https://www.uber.com' },
@@ -48,6 +48,7 @@ function App() {
     <div className="App">
       <div className="container">
         <header className="header">
+          <img src={logo} alt="StaySpot Logo" className="logo" /> {/* Display the logo */}
           <h1 className="title">StaySpot</h1>
         </header>
 
