@@ -1,279 +1,310 @@
-/* Import Inter Font */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-
 /* Global Styles */
 body {
-  font-family: 'Inter', sans-serif;
-  background-color: #f4f7fa;
+  font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  background-color: #f9f9f9; /* Subtle background */
   color: #333;
+  overflow-x: hidden;
 }
 
-.App {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.container {
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-/* Header */
-.header {
-  background-color: #ffffff;
-  padding: 20px;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
-  border-radius: 10px;
-  width: 100%;
-  text-align: center;
-  margin-bottom: 40px;
+/* Header Section */
+.header-title {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 1.5rem 2rem;
+  background: linear-gradient(to right, #0052cc, #007bff); /* Gradient background */
+  color: #ffffff;
+  font-size: 3.7rem;
+  font-weight: bold;
+  text-align: center;
+  gap: 1rem;
+  border-bottom: 2px solid #0047ab;
+}
+.para{
+  font-weight: bold;
+  font-size: 1.5rem;
 }
 
-.title {
-  font-size: 36px;
-  font-weight: 700;
-  color: #333;
-  margin: 0;
-  margin-left: 15px;
+.header-logo {
+  height: 80px;
+  width: auto;
+  filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.2)); /* Highlight with shadow */
 }
 
-/* Filter Section */
-.filter-section {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 40px;
-  width: 100%;
-}
-
-.filters {
-  background-color: #fff;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
-  flex: 1;
-  margin-right: 20px;
-}
-
-.filters h3 {
-  font-size: 18px;
-  margin-bottom: 15px;
-  color: #555;
-  font-weight: 600;
-}
-
-.filters label {
-  display: block;
-  margin-bottom: 10px;
-  font-size: 16px;
-  color: #555;
-}
-
-.filters input[type="checkbox"] {
-  margin-right: 10px;
-  accent-color: #6a56f0;
-}
-
-.search-filter {
-  flex: 2;
+/* Search Bar Section */
+.search-container {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 2rem auto;
+  position: relative;
+  width: 80%;
 }
 
-.search-bar {
+.search-input {
   width: 100%;
-  padding: 12px 16px;
-  font-size: 16px;
-  border: 2px solid #e0e0e0;
-  border-radius: 8px;
-  transition: border-color 0.3s ease;
-}
-
-.search-bar:focus {
-  border-color: #6a56f0;
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  border-radius: 25px;
+  border: 1px solid #ccc;
   outline: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
 }
 
-/* PG List */
-.pg-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
+.search-input:focus {
+  border-color: #0052cc;
+  box-shadow: 0 4px 8px rgba(0, 82, 204, 0.2);
+}
+
+.suggestions {
+  position: absolute;
+  top: 50px;
   width: 100%;
-}
-
-.pg-item {
-  flex: 0 0 45%;
-  background-color: #ffffff;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  cursor: pointer;
-}
-
-.pg-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
-}
-
-.pg-image-placeholder {
-  width: 100%;
-  height: 180px;
-  background: #f0f0f0;
+  background-color: #fff;
   border-radius: 8px;
-  margin-bottom: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  z-index: 10;
+}
+
+.suggestion {
+  padding: 10px 15px;
+  cursor: pointer;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.suggestion:hover {
+  background-color: #f0f0f0;
+}
+
+/* Filters Section */
+.filter-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1.5rem auto;
+  padding: 1rem;
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 80%;
+}
+
+.filter-option {
+  font-size: 1rem;
+  color: #333;
   display: flex;
   align-items: center;
-  justify-content: center;
-  color: #999;
-  font-size: 18px;
+  gap: 0.5rem;
 }
 
-.pg-info {
-  text-align: left;
-}
-
-.pg-info strong {
-  display: block;
-  font-size: 18px;
-  color: #333;
-  margin-bottom: 5px;
-}
-
-.pg-info p {
-  font-size: 14px;
-  color: #777;
-}
-
-/* PG Detail View */
-.pg-detail {
-  background-color: #fff;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
-  width: 100%;
-  text-align: left;
-}
-
-.pg-detail h2 {
-  font-size: 24px;
-  font-weight: 700;
-  margin-bottom: 15px;
-  color: #333;
-}
-
-.pg-detail p {
-  font-size: 16px;
-  color: #666;
-  margin-bottom: 10px;
-}
-
-.price-range {
-  font-size: 18px;
-  font-weight: 600;
-  color: #6a56f0;
-  background-color: #ede9ff;
-  padding: 8px 16px;
-  border-radius: 8px;
-  display: inline-block;
-  margin-top: 10px;
-}
-
-/* Button Group */
-.button-group {
-  display: flex;
-  gap: 15px;
-  margin-top: 20px;
-}
-
-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  border: none;
-  border-radius: 6px;
+input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
-.maps-button {
-  background-color: #6a56f0;
-  color: white;
+.filter-option:hover {
+  color: #0052cc;
+}
+
+/* PG Listings Section */
+.pg-listing {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+  margin: 0 auto;
+  width: 90%;
+}
+
+.accommodation-item {
+  background-color: #ffffff;
+  border-radius: 15px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.accommodation-item:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.accommodation-item h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #0052cc;
+  font-weight: bold;
+}
+
+.accommodation-item p {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 0.5rem 0;
+}
+
+/* Overlay for Selected Place */
+.selected-place-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.overlay-content {
+  background-color: #6491da;
+  padding: 2rem;
+  border-radius: 15px;
+  max-width: 90%;
+  width: 100%;
+  position: relative;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.close-overlay {
+  background: transparent;
+  border: none;
+  font-size: 28px;
+  color: #333;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.close-overlay:hover {
+  color: #ff0000;
+}
+
+.place-images {
+  display: flex;
+  overflow-x: scroll;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+.place-images img {
+  width: auto;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.place-images img:hover {
+  transform: scale(1.05);
+}
+
+/* Image Modal Styles */
+.image-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.modal-content {
+  position: relative;
+  max-width: 80%;
+  max-height: 80%;
+}
+
+.modal-content img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.close-modal {
+  background: transparent;
+  border: none;
+  font-size: 36px;
+  color: #fff;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.close-modal:hover {
+  color: #ff0000;
+}
+
+/* Footer Section */
+.footer {
+  background-color: #0047ab;
+  color: #ffffff;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.uber-button,
+.directions-button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 1.875rem; /* 30px */
+  margin: 0.625rem; /* 10px */
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem; /* 8px */
+  border: 0.125rem solid transparent; /* 2px */
 }
 
 .uber-button {
-  background-color: #333;
-  color: white;
+  background-color: #2c3b4a;
+  color: #fff;
 }
 
-button:hover {
-  opacity: 0.85;
+.uber-button:hover {
+  background-color: #618ba9;
+  border-color: #000;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .filter-section {
-    flex-direction: column;
-  }
-
-  .filters {
-    margin-right: 0;
-    margin-bottom: 20px;
-  }
-
-  .pg-item {
-    flex: 0 0 100%;
-  }
-
-  .search-bar {
-    width: 100%;
-  }
+.directions-button {
+  background-color: #32cd32;
+  color: #fff;
 }
 
-@media (max-width: 500px) {
-  .pg-detail h2 {
-    font-size: 20px;
+.directions-button:hover {
+  background-color: #228b22;
+  border-color: #000;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
-
-  .pg-detail p {
-    font-size: 14px;
-  }
-
-  button {
-    font-size: 14px;
+  to {
+    opacity: 1;
   }
 }
-/* Add this to your existing App.css */
-
-/* Header Logo */
-.logo {
-  width: 50px; /* Adjust the size as needed */
-  height: auto;
-  object-fit: contain;
-}
-/* Example: Smooth Transitions for PG Items */
-.pg-item {
-  /* Existing styles */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Example: Smooth Hover for Buttons */
-button {
-  transition: background-color 0.3s ease, opacity 0.3s ease;
-}
-/* Example: Active Filter Labels */
-.filters label input[type="checkbox"]:checked + span {
-  font-weight: 600;
-  color: #6a56f0;
-}
-
